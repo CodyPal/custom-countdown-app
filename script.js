@@ -32,8 +32,11 @@ const today = new Date().toISOString().split('T')[0];
 dateEl.setAttribute('min', today);
 
 // Show todays date
-const todayFormatted = new Date().toDateString();
-todaysDate.textContent = todayFormatted;
+const d = new Date();
+const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+todaysDate.textContent = `${da}-${mo}-${ye}`;
 
 // Update DOM function
 function updateDOM(){
